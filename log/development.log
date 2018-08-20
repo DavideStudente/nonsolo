@@ -1,0 +1,440 @@
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (25.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateGamers (20180804142243)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "gamers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180804142243_create_gamers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180804142243"]]
+  ↳ bin/rails:9
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddIndexToGamersEmail (20180805135528)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_gamers_on_email" ON "gamers" ("email")[0m
+  ↳ db/migrate/20180805135528_add_index_to_gamers_email.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180805135528"]]
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddPasswordDigestToGamers (20180805140146)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "gamers" ADD "password_digest" varchar[0m
+  ↳ db/migrate/20180805140146_add_password_digest_to_gamers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180805140146"]]
+  ↳ bin/rails:9
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddRememberDigestToGamers (20180807083605)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "gamers" ADD "remember_digest" varchar[0m
+  ↳ db/migrate/20180807083605_add_remember_digest_to_gamers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180807083605"]]
+  ↳ bin/rails:9
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddActivationToGamers (20180808131032)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "gamers" ADD "activation_digest" varchar[0m
+  ↳ db/migrate/20180808131032_add_activation_to_gamers.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "gamers" ADD "activated" boolean DEFAULT 0[0m
+  ↳ db/migrate/20180808131032_add_activation_to_gamers.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "gamers" ADD "activated_at" datetime[0m
+  ↳ db/migrate/20180808131032_add_activation_to_gamers.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180808131032"]]
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddResetToGamers (20180813085402)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "gamers" ADD "reset_digest" varchar[0m
+  ↳ db/migrate/20180813085402_add_reset_to_gamers.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "gamers" ADD "reset_sent_at" datetime[0m
+  ↳ db/migrate/20180813085402_add_reset_to_gamers.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180813085402"]]
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnToGamers (20180813170751)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "gamers" ADD "admin" boolean DEFAULT 0[0m
+  ↳ db/migrate/20180813170751_add_column_to_gamers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180813170751"]]
+  ↳ bin/rails:9
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateGroups (20180816110433)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180816110433_create_groups.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "region" varchar, "console" varchar, "game_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_c2952435ba"
+FOREIGN KEY ("game_id")
+  REFERENCES "games" ("id")
+)[0m
+  ↳ db/migrate/20180816110433_create_groups.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_groups_on_game_id" ON "groups" ("game_id")[0m
+  ↳ db/migrate/20180816110433_create_groups.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816110433"]]
+  ↳ bin/rails:9
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddMembersToGroups (20180816111809)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "groups" ADD "member_id" integer[0m
+  ↳ db/migrate/20180816111809_add_members_to_groups.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816111809"]]
+  ↳ bin/rails:9
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateTeams (20180816113141)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "boss_id" integer, "invite_id" integer, "match_id" integer, "challenge_id" integer, "member_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180816113141_create_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816113141"]]
+  ↳ bin/rails:9
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to ChangeColumnNameToGroups (20180816123348)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816123348"]]
+  ↳ bin/rails:9
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateGames (20180816123753)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816123753"]]
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddJoinTableGamesGroups (20180816130706)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "games_groups" ("game_id" integer NOT NULL, "group_id" integer NOT NULL)[0m
+  ↳ db/migrate/20180816130706_add_join_table_games_groups.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_games_groups_on_game_id" ON "games_groups" ("game_id")[0m
+  ↳ db/migrate/20180816130706_add_join_table_games_groups.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_games_groups_on_group_id" ON "games_groups" ("group_id")[0m
+  ↳ db/migrate/20180816130706_add_join_table_games_groups.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816130706"]]
+  ↳ bin/rails:9
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateUniqueIndexes (20180816131925)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_groups_on_name" ON "groups" ("name")[0m
+  ↳ db/migrate/20180816131925_create_unique_indexes.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_games_on_name" ON "games" ("name")[0m
+  ↳ db/migrate/20180816131925_create_unique_indexes.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816131925"]]
+  ↳ bin/rails:9
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddDescriptionToGroup (20180816174601)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "groups" ADD "description" text[0m
+  ↳ db/migrate/20180816174601_add_description_to_group.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816174601"]]
+  ↳ bin/rails:9
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddConsoleGameDescriptionToTeam (20180816201328)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "teams" ADD "description" text[0m
+  ↳ db/migrate/20180816201328_add_console_game_description_to_team.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "teams" ADD "console" varchar[0m
+  ↳ db/migrate/20180816201328_add_console_game_description_to_team.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "teams" ADD "game_id" integer[0m
+  ↳ db/migrate/20180816201328_add_console_game_description_to_team.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_teams_on_game_id" ON "teams" ("game_id")[0m
+  ↳ db/migrate/20180816201328_add_console_game_description_to_team.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180816201328"]]
+  ↳ bin/rails:9
+  [1m[35m (32.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePlayings (20180817135600)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "playings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180817135600_create_playings.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817135600"]]
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToPlaying (20180817135802)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "playings" ADD "game_id" integer[0m
+  ↳ db/migrate/20180817135802_add_columns_to_playing.rb:4
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "playings" ADD "group_id" integer[0m
+  ↳ db/migrate/20180817135802_add_columns_to_playing.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817135802"]]
+  ↳ bin/rails:9
+  [1m[35m (16.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddIndexToPlaying (20180817140408)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_playings_on_game_id_and_group_id" ON "playings" ("game_id", "group_id")[0m
+  ↳ db/migrate/20180817140408_add_index_to_playing.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817140408"]]
+  ↳ bin/rails:9
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddAvatarToTeams (20180817155553)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "teams" ADD "avatar" varchar[0m
+  ↳ db/migrate/20180817155553_add_avatar_to_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817155553"]]
+  ↳ bin/rails:9
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to RemoveMemberIdFromTeams (20180817165344)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ateams" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "boss_id" integer DEFAULT NULL, "invite_id" integer DEFAULT NULL, "match_id" integer DEFAULT NULL, "challenge_id" integer DEFAULT NULL, "member_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" text DEFAULT NULL, "console" varchar DEFAULT NULL, "game_id" integer DEFAULT NULL, "avatar" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_ateams_on_game_id" ON "ateams" ("game_id")[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ateams" ("id","name","boss_id","invite_id","match_id","challenge_id","member_id","created_at","updated_at","description","console","game_id","avatar")
+                     SELECT "id","name","boss_id","invite_id","match_id","challenge_id","member_id","created_at","updated_at","description","console","game_id","avatar" FROM "teams"[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "teams"[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "boss_id" integer DEFAULT NULL, "invite_id" integer DEFAULT NULL, "match_id" integer DEFAULT NULL, "challenge_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" text DEFAULT NULL, "console" varchar DEFAULT NULL, "game_id" integer DEFAULT NULL, "avatar" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_teams_on_game_id" ON "teams" ("game_id")[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("id","name","boss_id","invite_id","match_id","challenge_id","created_at","updated_at","description","console","game_id","avatar")
+                     SELECT "id","name","boss_id","invite_id","match_id","challenge_id","created_at","updated_at","description","console","game_id","avatar" FROM "ateams"[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "ateams"[0m
+  ↳ db/migrate/20180817165344_remove_member_id_from_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817165344"]]
+  ↳ bin/rails:9
+  [1m[35m (26.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddTeamIdToGamer (20180817165713)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817165713"]]
+  ↳ bin/rails:9
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to ChangeTeamIdInTeamToTeams (20180817203147)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817203147"]]
+  ↳ bin/rails:9
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateGamersTeamsJoinTable (20180817205144)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "gamers_teams" ("gamer_id" integer NOT NULL, "team_id" integer NOT NULL)[0m
+  ↳ db/migrate/20180817205144_create_gamers_teams_join_table.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_gamers_teams_on_gamer_id" ON "gamers_teams" ("gamer_id")[0m
+  ↳ db/migrate/20180817205144_create_gamers_teams_join_table.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_gamers_teams_on_team_id" ON "gamers_teams" ("team_id")[0m
+  ↳ db/migrate/20180817205144_create_gamers_teams_join_table.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817205144"]]
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateInviteRequests (20180817205449)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "invite_requests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180817205449_create_invite_requests.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817205449"]]
+  ↳ bin/rails:9
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnToInviteRequest (20180817205535)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "invite_requests" ADD "invite_id" integer[0m
+  ↳ db/migrate/20180817205535_add_column_to_invite_request.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "invite_requests" ADD "gamer_id" integer[0m
+  ↳ db/migrate/20180817205535_add_column_to_invite_request.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817205535"]]
+  ↳ bin/rails:9
+  [1m[35m (40.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to RenameInviteIdToGameIdInInviteRequests (20180817211105)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ainvite_requests" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "gamer_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817211105_rename_invite_id_to_game_id_in_invite_requests.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ainvite_requests" ("id","created_at","updated_at","team_id","gamer_id")
+                     SELECT "id","created_at","updated_at","invite_id","gamer_id" FROM "invite_requests"[0m
+  ↳ db/migrate/20180817211105_rename_invite_id_to_game_id_in_invite_requests.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "invite_requests"[0m
+  ↳ db/migrate/20180817211105_rename_invite_id_to_game_id_in_invite_requests.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "invite_requests" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "gamer_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817211105_rename_invite_id_to_game_id_in_invite_requests.rb:3
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "invite_requests" ("id","created_at","updated_at","team_id","gamer_id")
+                     SELECT "id","created_at","updated_at","team_id","gamer_id" FROM "ainvite_requests"[0m
+  ↳ db/migrate/20180817211105_rename_invite_id_to_game_id_in_invite_requests.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ainvite_requests"[0m
+  ↳ db/migrate/20180817211105_rename_invite_id_to_game_id_in_invite_requests.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817211105"]]
+  ↳ bin/rails:9
+  [1m[35m (15.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateMatches (20180817211834)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "matches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180817211834_create_matches.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817211834"]]
+  ↳ bin/rails:9
+  [1m[35m (23.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateChallenges (20180817211848)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "challenges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180817211848_create_challenges.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817211848"]]
+  ↳ bin/rails:9
+  [1m[35m (17.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumns (20180817211907)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "matches" ADD "a_team_id" integer[0m
+  ↳ db/migrate/20180817211907_add_columns.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "matches" ADD "b_team_id" integer[0m
+  ↳ db/migrate/20180817211907_add_columns.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "challenges" ADD "a_team_id" integer[0m
+  ↳ db/migrate/20180817211907_add_columns.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "challenges" ADD "b_team_id" integer[0m
+  ↳ db/migrate/20180817211907_add_columns.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817211907"]]
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to RenameInMatchesChallenges (20180817214034)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amatches" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "b_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "amatches" ("id","created_at","updated_at","team_id","b_team_id")
+                     SELECT "id","created_at","updated_at","a_team_id","b_team_id" FROM "matches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "matches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "matches" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "b_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "matches" ("id","created_at","updated_at","team_id","b_team_id")
+                     SELECT "id","created_at","updated_at","team_id","b_team_id" FROM "amatches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:3
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "amatches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amatches" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "matching_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "amatches" ("id","created_at","updated_at","team_id","matching_team_id")
+                     SELECT "id","created_at","updated_at","team_id","b_team_id" FROM "matches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "matches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "matches" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "matching_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:4
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "matches" ("id","created_at","updated_at","team_id","matching_team_id")
+                     SELECT "id","created_at","updated_at","team_id","matching_team_id" FROM "amatches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "amatches"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "achallenges" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "b_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:6
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "achallenges" ("id","created_at","updated_at","team_id","b_team_id")
+                     SELECT "id","created_at","updated_at","a_team_id","b_team_id" FROM "challenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "challenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "challenges" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "b_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:6
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "challenges" ("id","created_at","updated_at","team_id","b_team_id")
+                     SELECT "id","created_at","updated_at","team_id","b_team_id" FROM "achallenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "achallenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "achallenges" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "challenging_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:7
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "achallenges" ("id","created_at","updated_at","team_id","challenging_team_id")
+                     SELECT "id","created_at","updated_at","team_id","b_team_id" FROM "challenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "challenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "challenges" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "team_id" integer DEFAULT NULL, "challenging_team_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:7
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "challenges" ("id","created_at","updated_at","team_id","challenging_team_id")
+                     SELECT "id","created_at","updated_at","team_id","challenging_team_id" FROM "achallenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "achallenges"[0m
+  ↳ db/migrate/20180817214034_rename_in_matches_challenges.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817214034"]]
+  ↳ bin/rails:9
+  [1m[35m (20.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateMembers (20180817215700)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180817215700_create_members.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817215700"]]
+  ↳ bin/rails:9
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToMember (20180817215944)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "members" ADD "gamer_id" integer[0m
+  ↳ db/migrate/20180817215944_add_columns_to_member.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "members" ADD "team_id" integer[0m
+  ↳ db/migrate/20180817215944_add_columns_to_member.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180817215944"]]
+  ↳ bin/rails:9
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddRoleToGamers (20180820075442)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "gamers" ADD "role" integer[0m
+  ↳ db/migrate/20180820075442_add_role_to_gamers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180820075442"]]
+  ↳ bin/rails:9
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-08-20 08:00:46.016109"], ["updated_at", "2018-08-20 08:00:46.016109"]]
+  ↳ bin/rails:9
+  [1m[35m (20.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mGamer Load (0.4ms)[0m  [1m[34mSELECT  "gamers".* FROM "gamers" ORDER BY "gamers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
